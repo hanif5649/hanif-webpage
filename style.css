@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    color: #333;
+  }
+  
+  .portfolio {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  header h1 {
+    color: #6a11cb;
+    font-size: 2.8rem;
+  }
+  
+  header a {
+    color: #007acc;
+    text-decoration: none;
+  }
+  
+  h2 {
+    color: #8f44c5;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  ul {
+    padding-left: 40px;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: rgb(65, 58, 58);
+    background-color: #c7b3ac;
+  }  
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .gallery img {
+    width: 250px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  .container {
+    width: 70%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 15px;
+    background: #b18779;
+    padding-left: 8px;
+  }
+
+
+  @media (max-width: 600px) {
+    .portfolio {
+      padding: 20px;
+      margin: 20px 10px;
+    }
+  
+    header h1 {
+      font-size: 1.8rem;
+    }
+  
+    section, ul {
+      font-size: 0.95rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    header p, header a {
+      font-size: 0.9rem;
+      word-wrap: break-word;
+    }
+  }
+  
+  
