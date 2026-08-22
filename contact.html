@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | TIJANI IBRAHIM HANIF</title>
+    <meta name="description" content="Get in touch with Tijani Ibrahim Hanif — Full Stack Web Developer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+  :root{
+    --bg:#0A0A12;
+    --bg-alt:#11111C;
+    --card:#14141F;
+    --border:rgba(255,255,255,.08);
+    --purple:#6C5CE7;
+    --purple-light:#8B7CFF;
+    --purple-dim:rgba(108,92,231,.15);
+    --text:#EDEDF5;
+    --muted:#9A9AB4;
+    --white:#FFFFFF;
+    --green:#3ED598;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--white);margin:0 0 .5em;line-height:1.15;font-weight:700;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  :focus-visible{outline:2px solid var(--purple-light);outline-offset:3px;}
+  ::selection{background:var(--purple);color:#fff;}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;font-weight:600;color:var(--purple-light);
+    display:flex;align-items:center;gap:10px;margin-bottom:14px;font-family:'JetBrains Mono',monospace;
+  }
+  .eyebrow::before{content:"";color:var(--purple);}
+
+  /* ---- Header ---- */
+  header{
+    position:sticky;top:0;z-index:100;background:rgba(10,10,18,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1180px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--white);}
+  .logo .badge{
+    width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--purple),var(--purple-light));
+    display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:#fff;
+  }
+  nav.primary-nav ul{display:flex;gap:30px;}
+  nav.primary-nav a{font-weight:500;font-size:.92rem;color:var(--muted);position:relative;padding:4px 0;transition:color .2s;}
+  nav.primary-nav a:hover,nav.primary-nav a.active{color:var(--white);}
+  nav.primary-nav a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--purple-light);transition:width .25s ease;}
+  nav.primary-nav a.active::after,nav.primary-nav a:hover::after{width:100%;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:10px;
+    font-weight:600;font-size:.88rem;border:1px solid transparent;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-purple{background:linear-gradient(135deg,var(--purple),var(--purple-light));color:#fff;}
+  .btn-purple:hover{transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(108,92,231,.7);}
+  .btn-outline{background:transparent;border-color:var(--border);color:var(--text);}
+  .btn-outline:hover{border-color:var(--purple-light);color:var(--purple-light);}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;}
+  .hamburger span{width:22px;height:2px;background:var(--white);display:block;}
+
+  /* ---- Sections ---- */
+  section{padding:100px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head.center{margin:0 auto 56px;text-align:center;}
+  .section-head p{color:var(--muted);font-size:1.02rem;}
+
+  /* ---- Contact ---- */
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;}
+  .contact-list{display:flex;flex-direction:column;gap:16px;margin-top:30px;}
+  .info-row{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px;}
+  .info-row .ic{width:36px;height:36px;border-radius:9px;background:var(--purple-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .info-row .ic svg{width:17px;height:17px;stroke:var(--purple-light);}
+  .info-row strong{display:block;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;}
+  .info-row span{font-size:.94rem;color:var(--text);}
+  .socials{display:flex;gap:14px;margin-top:6px;}
+  .socials a{
+    width:40px;height:40px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+    transition:.2s;
+  }
+  .socials a svg{width:18px;height:18px;stroke:var(--muted);}
+  .socials a:hover{border-color:var(--purple-light);background:var(--purple-dim);}
+  .socials a:hover svg{stroke:var(--purple-light);}
+  .contact-form{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:var(--muted);}
+  .field input,.field textarea{
+    width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--border);font-family:inherit;font-size:.92rem;
+    background:var(--bg-alt);color:var(--text);
+  }
+  .field textarea{resize:vertical;min-height:100px;}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--purple-light);}
+  .contact-form .btn{width:100%;margin-top:6px;}
+  .form-success{display:none;text-align:center;padding:20px 0;}
+  .form-success.show{display:block;}
+  .form-success .check-circle{
+    width:52px;height:52px;border-radius:50%;background:var(--purple-dim);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;
+  }
+  .form-success svg{width:24px;height:24px;stroke:var(--purple-light);}
+
+  /* ---- Footer ---- */
+  footer{border-top:1px solid var(--border);padding:36px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--muted);}
+  .footer-row a{color:var(--muted);}
+  .footer-row a:hover{color:var(--purple-light);}
+  .back-top{
+    width:38px;height:38px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  }
+  .back-top svg{width:16px;height:16px;stroke:var(--muted);}
+  .back-top:hover{border-color:var(--purple-light);}
+  .back-top:hover svg{stroke:var(--purple-light);}
+
+  /* ---- Reveal ---- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---- Mobile nav ---- */
+  .mobile-nav{
+    position:fixed;top:0;right:0;height:100%;width:78%;max-width:300px;background:var(--bg-alt);z-index:200;
+    transform:translateX(100%);transition:transform .35s ease;padding:30px;display:flex;flex-direction:column;gap:24px;
+    border-left:1px solid var(--border);
+  }
+  .mobile-nav.open{transform:translateX(0);}
+  .mobile-nav a{font-size:1.05rem;font-weight:600;color:var(--text);}
+  .mobile-nav-close{align-self:flex-end;background:none;border:none;color:var(--text);font-size:1.4rem;}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;opacity:0;pointer-events:none;transition:opacity .3s;}
+  .scrim.show{opacity:1;pointer-events:auto;}
+
+  @media (max-width:900px){
+    nav.primary-nav,.nav-actions .btn-outline{display:none;}
+    .hamburger{display:flex;}
+    .contact-grid{grid-template-columns:1fr;gap:36px;}
+  }
+  @media (max-width:560px){
+    section{padding:70px 0;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+    html{scroll-behavior:auto;}
+  }
+    </style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header id="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo"><span class="badge">IH</span> TIJANI IBRAHIM HANIF</a>
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="Hanif-CV.pdf" class="btn btn-outline" id="downloadCvBtn">Download CV</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">×</button>
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+  <a href="Hanif-CV.pdf" class="btn btn-purple" id="downloadCvBtnMobile">Download CV</a>
+</div>
+
+<!-- ===== Contact ===== -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Let's build something</h2>
+      <p style="color:var(--muted);">Have a project in mind, or just want to say hi? My inbox is open.</p>
+      <div class="contact-list">
+        <div class="info-row">
+          <div class="ic"> <a href="mailto:hanifatijani13@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></a></div>
+          <div><strong>Email</strong><span>hanifatijani13@gmail.com</span></div> 
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><strong>Location</strong><span>No 10 Jafaru Marughu Street Off Igarra Road, Waterboard, Auchi, Edo State.</span></div>
+        </div>  
+        <div class="socials">
+          <a href="https://github.com/hanif5649" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="https://linkedin.com/in/ibrahim-hanif-42820935a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://x.com/hanif5649" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          <a href="mailto:hanifatijani13@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></a>
+          <a href="https://wa.me/2349030211894" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003c-5.514 0-9.987 4.472-9.987 9.986 0 1.76.464 3.484 1.346 4.998L2 22l5.135-1.347a9.955 9.955 0 0 0 4.865 1.24h.004c5.514 0 9.986-4.472 9.986-9.986 0-2.667-1.04-5.174-2.927-7.06a9.926 9.926 0 0 0-7.059-2.844zm0 18.29a8.26 8.26 0 0 1-4.208-1.152l-.302-.18-3.128.82.835-3.05-.197-.313a8.264 8.264 0 0 1-1.267-4.4c0-4.567 3.716-8.283 8.271-8.283 2.21 0 4.284.86 5.845 2.422a8.208 8.208 0 0 1 2.42 5.848c0 4.566-3.716 8.288-8.269 8.288z"/></svg></a></div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div id="formView">
+        <form id="contactForm">
+        <div class="field"><label for="cname">Your name</label><input type="text" id="cname" name="name" required placeholder="Jane Doe"></div>
+        <div class="field"><label for="cemail">Your email</label><input type="email" id="cemail" name="email" required placeholder="jane@example.com"></div>
+        <div class="field"><label for="cmessage">Message</label><textarea id="cmessage" name="message" required placeholder="Tell me about your project..."></textarea></div>
+          <button type="submit" class="btn btn-purple">Send Message</button>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="check-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Message sent</h3>
+        <p style="color:var(--muted);">Thanks for reaching out — I'll get back to you soon.</p>
+        <button class="btn btn-outline" id="formDone">Close</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container footer-row">
+    <span>© <span id="year"></span> Tijani Ibrahim Hanif.</span>
+    <a href="#contact" class="back-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---- Mobile nav ----
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var mobileClose = document.getElementById('mobileNavClose');
+  var scrim = document.getElementById('scrim');
+  function openMobile(){ mobileNav.classList.add('open'); scrim.classList.add('show'); }
+  function closeMobile(){ mobileNav.classList.remove('open'); scrim.classList.remove('show'); }
+  hamburger.addEventListener('click', openMobile);
+  mobileClose.addEventListener('click', closeMobile);
+  scrim.addEventListener('click', closeMobile);
+  mobileNav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMobile); });
+
+  // ---- Header scroll state ----
+  var header = document.getElementById('site-header');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  }, {passive:true});
+
+  // ---- Contact form ----
+  var contactForm = document.getElementById('contactForm');
+  var formView = document.getElementById('formView');
+  var formSuccess = document.getElementById('formSuccess');
+
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    fetch('https://formspree.io/f/mbgrylar', {   // <-- replace with YOUR Formspree endpoint
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response){
+      if (response.ok) {
+        formView.style.display = 'none';
+        formSuccess.classList.add('show');
+      } else {
+        alert('Something went wrong sending your message — please try again or email me directly.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    })
+    .catch(function(){
+      alert('Something went wrong sending your message — please try again or email me directly.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    });
+  });
+
+  document.getElementById('formDone').addEventListener('click', function(){
+    formView.style.display = 'block';
+    formSuccess.classList.remove('show');
+    contactForm.reset();
+  });
+
+  // ---- Reveal on load (no scroll observer needed on this short page) ----
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

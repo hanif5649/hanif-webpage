@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | TIJANI IBRAHIM HANIF</title>
+<meta name="description" content="A closer look at projects built by Tijani Ibrahim Hanif — Full Stack Web Developer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A12;
+    --bg-alt:#11111C;
+    --card:#14141F;
+    --border:rgba(255,255,255,.08);
+    --purple:#6C5CE7;
+    --purple-light:#8B7CFF;
+    --purple-dim:rgba(108,92,231,.15);
+    --text:#EDEDF5;
+    --muted:#9A9AB4;
+    --white:#FFFFFF;
+    --green:#3ED598;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--white);margin:0 0 .5em;line-height:1.15;font-weight:700;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  :focus-visible{outline:2px solid var(--purple-light);outline-offset:3px;}
+  ::selection{background:var(--purple);color:#fff;}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;font-weight:600;color:var(--purple-light);
+    display:flex;align-items:center;gap:10px;margin-bottom:14px;font-family:'JetBrains Mono',monospace;
+  }
+  .eyebrow::before{content:"//";color:var(--purple);}
+
+  /* ---- Header ---- */
+  header{
+    position:sticky;top:0;z-index:100;background:rgba(10,10,18,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1180px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--white);}
+  .logo .badge{
+    width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--purple),var(--purple-light));
+    display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:#fff;
+  }
+  nav.primary-nav ul{display:flex;gap:30px;}
+  nav.primary-nav a{font-weight:500;font-size:.92rem;color:var(--muted);position:relative;padding:4px 0;transition:color .2s;}
+  nav.primary-nav a:hover,nav.primary-nav a.active{color:var(--white);}
+  nav.primary-nav a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--purple-light);transition:width .25s ease;}
+  nav.primary-nav a.active::after,nav.primary-nav a:hover::after{width:100%;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:10px;
+    font-weight:600;font-size:.88rem;border:1px solid transparent;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-purple{background:linear-gradient(135deg,var(--purple),var(--purple-light));color:#fff;}
+  .btn-purple:hover{transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(108,92,231,.7);}
+  .btn-outline{background:transparent;border-color:var(--border);color:var(--text);}
+  .btn-outline:hover{border-color:var(--purple-light);color:var(--purple-light);}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;}
+  .hamburger span{width:22px;height:2px;background:var(--white);display:block;}
+
+  /* ---- Page hero ---- */
+  .page-hero{position:relative;overflow:hidden;padding:70px 0 50px;}
+  .page-hero::before{
+    content:"";position:absolute;top:-220px;left:-160px;width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle,rgba(108,92,231,.18),transparent 70%);
+  }
+  .page-hero .inner{position:relative;z-index:2;max-width:680px;}
+  .page-hero p.hello{color:var(--purple-light);font-family:'JetBrains Mono',monospace;font-size:35px;font-weight:700;margin-bottom:10px;}
+  .page-hero h1{font-size:clamp(2.1rem,4.2vw,3rem);}
+  .page-hero p.lead{color:var(--muted);font-size:1.02rem;}
+
+  /* ---- Sections ---- */
+  section{padding:60px 0 100px;}
+  .section-alt{background:var(--bg-alt);}
+
+  /* ---- Filters ---- */
+  .filter-strip{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px;}
+  .filter-pill{
+    padding:10px 20px;border-radius:999px;border:1px solid var(--border);font-size:.85rem;font-weight:600;
+    color:var(--muted);background:var(--card);transition:.2s;
+  }
+  .filter-pill.active,.filter-pill:hover{border-color:var(--purple-light);color:var(--purple-light);background:var(--purple-dim);}
+
+  /* ---- Project grid ---- */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;}
+  .project-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .3s ease, border-color .3s ease;cursor:pointer;
+  }
+  .project-card:hover{transform:translateY(-6px);border-color:rgba(139,124,255,.4);}
+  .project-thumb{
+    height:190px;background:linear-gradient(135deg,var(--bg-alt),var(--purple-dim));position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .project-thumb svg{width:48px;height:48px;stroke:var(--purple-light);opacity:.7;}
+  .project-thumb .status{
+    position:absolute;top:14px;right:14px;font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:5px 10px;
+    border-radius:999px;background:rgba(10,10,18,.6);border:1px solid var(--border);color:var(--green);
+  }
+  .project-body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .project-body h3{font-size:1.1rem;}
+  .project-body p{color:var(--muted);font-size:.9rem;margin:0;flex:1;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:5px 10px;border-radius:6px;
+    background:var(--purple-dim);color:var(--purple-light);border:1px solid rgba(139,124,255,.25);
+  }
+  .project-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
+  .project-footer .view-more{font-size:.85rem;font-weight:600;color:var(--purple-light);display:flex;align-items:center;gap:6px;}
+  .project-footer .view-more svg{width:14px;height:14px;stroke:var(--purple-light);}
+  .project-links{display:flex;gap:12px;}
+  .project-links a{
+    width:32px;height:32px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  }
+  .project-links a:hover{border-color:var(--purple-light);}
+  .project-links a svg{width:14px;height:14px;stroke:var(--muted);}
+  .project-links a:hover svg{stroke:var(--purple-light);}
+
+  /* ---- CTA strip ---- */
+  .cta-strip{
+    background:linear-gradient(135deg,var(--card),var(--bg-alt));border:1px solid var(--border);border-radius:24px;
+    padding:50px;text-align:center;margin-top:20px;
+  }
+  .cta-strip p{color:var(--muted);max-width:520px;margin:0 auto 24px;}
+
+  /* ---- Modal ---- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(6,6,10,.75);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;
+    padding:20px;z-index:1000;opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .modal-overlay.open{opacity:1;pointer-events:auto;}
+  .modal{
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:20px;max-width:620px;width:100%;
+    max-height:85vh;overflow-y:auto;position:relative;transform:translateY(18px);transition:transform .25s ease;
+    box-shadow:0 50px 100px -30px rgba(0,0,0,.7);
+  }
+  .modal-overlay.open .modal{transform:translateY(0);}
+  .modal-thumb{
+    height:220px;background:linear-gradient(135deg,var(--card),var(--purple-dim));display:flex;align-items:center;justify-content:center;
+  }
+  .modal-thumb svg{width:60px;height:60px;stroke:var(--purple-light);opacity:.7;}
+  .modal-close{
+    position:absolute;top:16px;right:16px;background:rgba(10,10,18,.6);border:1px solid var(--border);color:var(--text);
+    font-size:1.2rem;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;
+  }
+  .modal-close:hover{border-color:var(--purple-light);color:var(--purple-light);}
+  .modal-body{padding:32px;}
+  .modal-body .tag-row{margin-bottom:18px;}
+  .modal-body h3{font-size:1.4rem;margin-bottom:8px;}
+  .modal-body .modal-sub{color:var(--purple-light);font-family:'JetBrains Mono',monospace;font-size:.82rem;margin-bottom:18px;display:block;}
+  .modal-section{margin-bottom:20px;}
+  .modal-section h4{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px;}
+  .modal-section p{color:var(--text);font-size:.94rem;margin:0;}
+  .modal-links{display:flex;gap:14px;margin-top:24px;}
+
+  /* ---- Reveal ---- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---- Mobile nav ---- */
+  .mobile-nav{
+    position:fixed;top:0;right:0;height:100%;width:78%;max-width:300px;background:var(--bg-alt);z-index:200;
+    transform:translateX(100%);transition:transform .35s ease;padding:30px;display:flex;flex-direction:column;gap:24px;
+    border-left:1px solid var(--border);
+  }
+  .mobile-nav.open{transform:translateX(0);}
+  .mobile-nav a{font-size:1.05rem;font-weight:600;color:var(--text);}
+  .mobile-nav-close{align-self:flex-end;background:none;border:none;color:var(--text);font-size:1.4rem;}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;opacity:0;pointer-events:none;transition:opacity .3s;}
+  .scrim.show{opacity:1;pointer-events:auto;}
+
+  /* ---- Footer ---- */
+  footer{border-top:1px solid var(--border);padding:36px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--muted);}
+  .footer-row a{color:var(--muted);}
+  .footer-row a:hover{color:var(--purple-light);}
+  .back-top{
+    width:38px;height:38px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  }
+  .back-top svg{width:16px;height:16px;stroke:var(--muted);}
+  .back-top:hover{border-color:var(--purple-light);}
+  .back-top:hover svg{stroke:var(--purple-light);}
+
+  @media (max-width:900px){
+    nav.primary-nav,.nav-actions .btn-outline{display:none;}
+    .hamburger{display:flex;}
+  }
+  @media (max-width:560px){
+    section{padding:40px 0 70px;}
+    .cta-strip{padding:34px 22px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header id="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo"><span class="badge">IH</span> TIJANI IBRAHIM HANIF</a>
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="index.html#top">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="Hanif-CV.pdf" class="btn btn-outline" id="downloadCvBtn" download>Download CV</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">×</button>
+  <a href="index.html#top">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+  <a href="Hanif-CV.pdf" class="btn btn-purple" id="downloadCvBtnMobile" download>Download CV</a>
+</div>
+
+<!-- ===== Page hero ===== -->
+<section class="page-hero" style="padding-bottom:0;">
+  <div class="container inner reveal">
+    <p class="hello mono">My Projects</p>
+    <h1>Things I've built,</h1>
+    <p class="lead">A closer look at each project, the problem it solves, how it was built, and the stack behind it.</p>
+  </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section id="all-projects">
+  <div class="container">
+    <div class="filter-strip reveal" id="filterStrip"></div>
+    <div class="projects-grid reveal" id="projectsGrid"></div>
+
+    <div class="cta-strip reveal">
+      <h3>Have a project in mind?</h3>
+      <p>I'm open to freelance work and new opportunities, let's talk about what you're building.</p>
+      <a href="contact.html" class="btn btn-purple">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Project detail modal ===== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="modal-thumb" id="modalThumb"></div>
+    <div class="modal-body">
+      <span class="modal-sub" id="modalCategory"></span>
+      <h3 id="modalTitle"></h3>
+      <div class="tag-row" id="modalTags"></div>
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p id="modalOverview"></p>
+      </div>
+      <div class="modal-section">
+        <h4>My Role</h4>
+        <p id="modalRole"></p>
+      </div>
+      <div class="modal-section">
+        <h4>Outcome</h4>
+        <p id="modalOutcome"></p>
+      </div>
+      <div class="modal-links">
+        <a href="#" class="btn btn-purple" id="modalDemoLink" target="_blank" rel="noopener noreferrer">Live View</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container footer-row">
+    <span>© <span id="year"></span> Tijani Ibrahim Hanif.</span>
+    <a href="#top" class="back-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---- Project data (placeholders — replace with your real projects) ----
+  var projects = [
+    {
+      title:"Nexorafx - Forex & Crypto Simulation Platform",
+      category:"Web App",
+      tags:["PHP","MySQL","JavaScript", "HTML","CSS"],
+      status:"Live",
+      summary:"A web-based platform that simulates forex and crypto trading with real time data, charts, and a user dashboard.",
+      overview:"A trading simulator built to help beginners practice buying and selling of forex and crypto pairs without real financial risk, using live-style price charts and a virtual balance.",
+      role:"Designed and  built the full stack, database schema for trades and balances, the PHP backend logic, and the frontend dashboard with interactive charts.",
+      outcome:"Delivered a working simulator with account tracking, trade history, and a responsive dashboard, used as a portfolio centerpiece project.",
+      liveUrl:"https://www.nexorafx.site.je",
+      icon:'<img src="nexora_icon.png" alt="Nexorafx Icon"/>'
+    },
+    {
+      title:"Modern Delivery Services - Global Logistics Platform",
+      category:"Web App",
+      tags:["HTML","Tailwind CSS","Alpine.js","PHP","JavaScript"],
+      status:"Live",
+      summary:"A logistics company site with live shipment tracking, service pages, and an animated stats dashboard.",
+      overview:"A corporate website for a global logistics and courier company, covering air/sea/road freight, warehousing, and diplomatic shipping services. Includes a functional shipment tracking tool that submits to a PHP backend, plus animated statistics, testimonials, and a services showcase.",
+      role:"Designed and built the full frontend using Tailwind CSS and Alpine.js for interactive components, and wired the tracking form to a PHP endpoint for shipment lookups.",
+      outcome:"Delivered a fully responsive, multi-page site (Home, About, Services, Track Shipment, Contact, Diplomatic Services) with working navigation, a live tracking flow, and iOS-specific compatibility fixes for smooth mobile performance.",
+      liveUrl:"https://www.moderndeliveryservice.rf.gd",
+      icon:'<img src="delivery_icon.png" alt="Modern Delivery Services Icon"/>'
+    },
+    {
+      title:"Personal Portfolio Website",
+      category:"Website",
+      tags:["HTML","CSS","JavaScript"],
+      status:"Live",
+      summary:"A responsive personal portfolio website to showcase my skills, projects, and experience.",
+      overview:"The site you're on right now; built to present my skills, work, and experience in a clean, fast loading, fully responsive layout.",
+      role:"Designed and coded the entire front end from scratch, including layout, animations, and the contact form integration.",
+      outcome:"A live, functioning portfolio site used to apply for roles and freelance work.",
+      liveUrl:"index.html",
+      icon:'<img src="portfolio_icon.png" alt="Portfolio Icon"/>'
+    },
+    {
+      title:"Inventory Management Dashboard",
+      category:"Dashboard",
+      tags:["JavaScript","Node.js","MySQL"],
+      status:"In Progress",
+      summary:"An admin dashboard for tracking stock levels, orders, and low-stock alerts for a small retail business.",
+      overview:"A back-office tool designed to give small business owners a clear view of stock levels across products, with alerts when items run low.",
+      role:"Building the database structure, REST API endpoints, and the dashboard UI with charts for stock trends.",
+      outcome:"Core CRUD features complete; charting and alert notifications currently in development.",
+      liveUrl:"#",
+      icon:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>'
+    },
+    {
+      title:"E-Commerce Storefront",
+      category:"Web App",
+      tags:["React","Node.js","MySQL"],
+      status:"In Progress",
+      summary:"A small-scale online store with product listings, cart functionality, and checkout flow.",
+      overview:"A storefront built to demonstrate a full shopping experience — browsing products, filtering by category, adding to cart, and completing checkout.",
+      role:"Built the React front end and Node.js API, including cart state management and product filtering.",
+      outcome:"A working demo store used to showcase e-commerce development skills to clients and employers.",
+      liveUrl:"#",
+      icon:'<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>'
+    },
+    {
+      title:"Task & Team Management Tool",
+      category:"Dashboard",
+      tags:["JavaScript","PHP","MySQL"],
+      status:"Live",
+      summary:"A lightweight project management tool for assigning tasks, tracking progress, and managing small teams.",
+      overview:"A Kanban-style task tracker built for small teams to assign, move, and track tasks across statuses like To Do, In Progress, and Done.",
+      role:"Built the drag-and-drop board interface and the backend logic for task assignment and status updates.",
+      outcome:"Delivered a functional tool with persistent task state and basic team member assignment.",
+      liveUrl:"#",
+      icon:'<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'
+    },
+    {
+      title:"Image Classification Model",
+      category:"Machine Learning",
+      tags:["Python","TensorFlow","Keras"],
+      status:"Complete",
+      summary:"An image classification model built with Python, TensorFlow, and Keras, trained and evaluated across multiple hyperparameter configurations.",
+      overview:"A machine learning project applying core image classification concepts, building a convolutional neural network to categorize images, then systematically testing different hyperparameters and validation approaches to improve accuracy.",
+      role:"Built the model architecture in TensorFlow/Keras, trained it on a labeled image dataset, and iterated through different hyperparameters (learning rate, batch size, layer configuration) and validation techniques to evaluate and improve performance.",
+      outcome:"Delivered a trained image classifier with documented evaluation results across different configurations, demonstrating practical application of machine learning concepts beyond web development.",
+      liveUrl:"#",
+      icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>'
+    },
+  ];
+
+  var grid = document.getElementById('projectsGrid');
+  var filterStrip = document.getElementById('filterStrip');
+  var categories = ['All'].concat(Array.from(new Set(projects.map(function(p){ return p.category; }))));
+
+  categories.forEach(function(cat){
+    var pill = document.createElement('button');
+    pill.className = 'filter-pill' + (cat === 'All' ? ' active' : '');
+    pill.textContent = cat;
+    pill.dataset.cat = cat;
+    filterStrip.appendChild(pill);
+  });
+
+  function renderCards(list){
+    grid.innerHTML = '';
+    list.forEach(function(p, idx){
+      var card = document.createElement('div');
+      card.className = 'project-card reveal in';
+      card.innerHTML =
+        '<div class="project-thumb"><span class="status">'+p.status+'</span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'+p.icon+'</svg></div>'+
+        '<div class="project-body">'+
+          '<h3>'+p.title+'</h3>'+
+          '<p>'+p.summary+'</p>'+
+          '<div class="tag-row">'+p.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('')+'</div>'+
+          '<div class="project-footer">'+
+            '<span class="view-more">View details <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'+
+          '</div>'+
+        '</div>';
+      card.addEventListener('click', function(){ openModal(p); });
+      grid.appendChild(card);
+    });
+  }
+  renderCards(projects);
+
+  filterStrip.addEventListener('click', function(e){
+    var btn = e.target.closest('.filter-pill');
+    if(!btn) return;
+    filterStrip.querySelectorAll('.filter-pill').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    var cat = btn.dataset.cat;
+    renderCards(cat === 'All' ? projects : projects.filter(function(p){ return p.category === cat; }));
+  });
+
+  // ---- Modal ----
+  var overlay = document.getElementById('modalOverlay');
+  var modalClose = document.getElementById('modalClose');
+  function openModal(p){
+    document.getElementById('modalThumb').innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'+p.icon+'</svg>';
+    document.getElementById('modalCategory').textContent = p.category;
+    document.getElementById('modalTitle').textContent = p.title;
+    document.getElementById('modalTags').innerHTML = p.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('');
+    document.getElementById('modalOverview').textContent = p.overview;
+    document.getElementById('modalRole').textContent = p.role;
+    document.getElementById('modalOutcome').textContent = p.outcome;
+
+    var demoBtn = document.getElementById('modalDemoLink');
+    if (p.liveUrl && p.liveUrl !== '#') {
+      demoBtn.href = p.liveUrl;
+      demoBtn.style.display = 'inline-flex';
+    } else {
+      demoBtn.style.display = 'none';
+    }
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){ overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  modalClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+  // ---- Mobile nav ----
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var mobileClose = document.getElementById('mobileNavClose');
+  var scrim = document.getElementById('scrim');
+  function openMobile(){ mobileNav.classList.add('open'); scrim.classList.add('show'); }
+  function closeMobile(){ mobileNav.classList.remove('open'); scrim.classList.remove('show'); }
+  hamburger.addEventListener('click', openMobile);
+  mobileClose.addEventListener('click', closeMobile);
+  scrim.addEventListener('click', closeMobile);
+  mobileNav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMobile); });
+
+  // ---- Header scroll state ----
+  var header = document.getElementById('site-header');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  }, {passive:true});
+
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
